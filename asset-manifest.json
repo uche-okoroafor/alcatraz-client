@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/alcatraz-client/static/css/main.f855e6bc.css",
-    "main.js": "/alcatraz-client/static/js/main.6daf18e1.js",
+    "main.css": "/alcatraz-client/static/css/main.d587a9ce.css",
+    "main.js": "/alcatraz-client/static/js/main.f2fccabb.js",
     "static/js/453.09e65f3b.chunk.js": "/alcatraz-client/static/js/453.09e65f3b.chunk.js",
-    "static/media/logo.svg": "/alcatraz-client/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/Trading-Strategies-logo.png": "/alcatraz-client/static/media/Trading-Strategies-logo.ca06770fe6d366dcb2fe.png",
+    "static/media/Trading-Strategies-logo-white.png": "/alcatraz-client/static/media/Trading-Strategies-logo-white.f00d0e85618d5427a0ea.png",
     "index.html": "/alcatraz-client/index.html",
-    "main.f855e6bc.css.map": "/alcatraz-client/static/css/main.f855e6bc.css.map",
-    "main.6daf18e1.js.map": "/alcatraz-client/static/js/main.6daf18e1.js.map",
+    "main.d587a9ce.css.map": "/alcatraz-client/static/css/main.d587a9ce.css.map",
+    "main.f2fccabb.js.map": "/alcatraz-client/static/js/main.f2fccabb.js.map",
     "453.09e65f3b.chunk.js.map": "/alcatraz-client/static/js/453.09e65f3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.6daf18e1.js"
+    "static/css/main.d587a9ce.css",
+    "static/js/main.f2fccabb.js"
   ]
 }
