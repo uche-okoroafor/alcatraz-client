@@ -105,7 +105,7 @@ const StrategySetupCard = (props) => {
 
     return (
         <>
-            <div className="row mt-5 card-custom">
+            <div className="row mt-5 card-custom" style={{ minHeight: '50vh' }}>
                 {setups.map(setup => (
                     <div className="col-12 col-md-6 col-lg-4 mb-4" key={setup._id}>
                         <Card className="strategy-card" onClick={() => handleCardClick(setup)}>
@@ -142,14 +142,16 @@ const StrategySetupCard = (props) => {
                 ))}
             </div>
 
-            <div className="d-flex justify-content-between mt-4">
-                <Button variant="contained" onClick={handlePreviousPage} disabled={currentPage === 1} style={{ backgroundColor: '#3FB923' }}>
-                    Previous
-                </Button>
-                <Button variant="contained" onClick={handleNextPage} disabled={currentPage * pageSize >= totalSetups} style={{ backgroundColor: '#3FB923' }}>
-                    Next
-                </Button>
-            </div>
+            {!(currentPage === 1 && (currentPage * pageSize >= totalSetups)) &&
+                <div className="d-flex justify-content-between mt-4">
+                    <Button variant="contained" onClick={handlePreviousPage} disabled={currentPage === 1} style={{ backgroundColor: '#3FB923' }}>
+                        Previous
+                    </Button>
+                    <Button variant="contained" onClick={handleNextPage} disabled={currentPage * pageSize >= totalSetups} style={{ backgroundColor: '#3FB923' }}>
+                        Next
+                    </Button>
+                </div>
+            }
         </>
     );
 };

@@ -4,7 +4,6 @@ import { Add } from '@mui/icons-material';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StrategySetupCard from './components/StrategySetupCard';
 import StrategySetupForm from './components/StrategySetupForm';
-import logo from './Trading-Strategies-logo.png';
 import logos from './Trading-Strategies-logo-white.png';
 import './App.css'; // Import the CSS file
 import SelectedSetupDetails from './components/StrategySetupDatils';
@@ -12,7 +11,10 @@ import io from "socket.io-client";
 import axios from 'axios'; // Import axios for making HTTP requests
 import { SERVER_URL, SOCKET_IO_URL } from './endpoints';
 
-const socket = io(SOCKET_IO_URL); // Adjust the URL as needed
+const socket = io(SOCKET_IO_URL,{
+    transports: ['websocket', 'polling'],
+    withCredentials: true,
+  }); 
 
 export default function TradingDashboard() {
 
@@ -139,15 +141,37 @@ export default function TradingDashboard() {
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'relative' }}>
               <img src={logos} className='mr-3' alt="Trading Strategies" style={{ width: '50px', height: 'auto', borderRadius: '50%', marginRight: '10px' }} />
               <Typography variant="h6" component="h6" style={{ color: 'white' }}>
-                Trading Strategies
+                Alcatraz
               </Typography>
               <div className={hasError()}></div>
             </div>
 
             <Button variant="contained" startIcon={<Add />} onClick={() => setOpen(true)} style={{ backgroundColor: '#2fa8f6' }}>
-              Add Strategy Setup
+              Add Setup
             </Button>
           </div>
+
+          {loading && (
+            <div className="d-flex justify-content-center align-items-center"
+              style={{
+                position: 'fixed',
+                top: '40%',
+                left: 0,
+                right: 0,
+                zIndex: 9999,
+              }}
+            >
+              <div className="spinner-border" role="status"
+                style={{
+                  width: '100px',
+                  height: '100px',
+                  color: '#2fa8f6'
+                }}
+              >
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          )}
 
           <StrategySetupCard
             handleCardClick={handleCardClick}
@@ -158,6 +182,7 @@ export default function TradingDashboard() {
             setActiveRunningStrategy={setActiveRunningStrategy}
             newSignals={newSignals}
           />
+
           <StrategySetupForm
             open={open}
             onClose={() => setOpen(false)}
@@ -167,7 +192,7 @@ export default function TradingDashboard() {
         </>
       ) : (
         <div>
-          <Button variant="contained" onClick={handleBackClick} className="mb-4" style={{ backgroundColor: '#2fa8f6' }}>Back to Trading Strategies</Button>
+          <Button variant="contained" onClick={handleBackClick} className="mb-4" style={{ backgroundColor: '#2fa8f6' }}>Back to Setup</Button>
           <SelectedSetupDetails
             selectedSetup={selectedSetup}
             onUpdate={setNewAddedSetup}
